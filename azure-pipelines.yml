@@ -75,7 +75,9 @@ stages:
             inputs:
               kubernetesServiceConnection: 'Kubernetes Cluster Connection'
               namespace: 'default'
-              manifests: $(Pipeline.Workspace)/manifests/deployment.yml | $(Pipeline.Workspace)/manifests/service.yml
+              manifests: | 
+                $(Pipeline.Workspace)/manifests/deployment.yml 
+                $(Pipeline.Workspace)/manifests/service.yml
               containers: |
                 $(RegistryName)/$(webRepository):$(tag)
                 $(RegistryName)/$(leaderboardRepository):$(tag)
