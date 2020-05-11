@@ -3,7 +3,7 @@ az configure --defaults location=australiaeast
 resourceSuffix=000
 
 registryName="tsgaksacr${resourceSuffix}"
-aksName="tsg-k8s-${resourceSuffix}"
+aksName="tsg-aks-${resourceSuffix}"
 rgName='tsg-aks-rg'
 
 aksVersion=$(az aks get-versions \
@@ -15,7 +15,7 @@ az group create --name $rgName
 az acr create \
   --name $registryName \
   --resource-group $rgName \
-  --sku Standard
+  --sku Basic
 
 
 az aks create \
