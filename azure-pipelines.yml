@@ -40,13 +40,13 @@ stages:
           $(tag)
     
     - publish: '$(Build.SourcesDirectory)/manifests'
-      artifacts: manifests
+      artifact: manifests
 
 - stage: 'Deploy'
-  displayName: 'Deploy the container'
+  displayName: 'Deploy the containers'
   dependsOn: Build
   jobs:
-  - job: 'Deploy'
+  - deployment: Deploy
     displayName: 'Deploy job'
     pool:
       vmImage: 'ubuntu-16.04'
