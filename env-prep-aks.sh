@@ -23,6 +23,7 @@ az aks create \
   --resource-group $rgName \
   --enable-addons monitoring \
   --kubernetes-version $aksVersion \
+  --node-vm-size Standard_B1s
   --generate-ssh-keys
 
 
